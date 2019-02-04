@@ -15,6 +15,8 @@ From ExtLib.Structures Require Import
 From ITree Require Import
      Core.
 
+Set Universe Polymorphism.
+
 Variant void : Type := .
 
 (** Sums for extensible event types. *)

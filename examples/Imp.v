@@ -10,6 +10,8 @@ Require Import ExtLib.Data.List.
 From ITree Require Import
      ITree.
 
+Set Universe Polymorphism.
+
 Import MonadNotation.
 Local Open Scope monad_scope.
 Local Open Scope string_scope.

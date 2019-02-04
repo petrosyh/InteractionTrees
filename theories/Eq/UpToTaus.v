@@ -29,6 +29,8 @@ From Coq Require Import
 
 From ITree Require Import paco2_upto Core Eq.Eq.
 
+Set Universe Polymorphism.
+
 Set Bullet Behavior "Strict Subproofs".
 
 Local Open Scope itree.

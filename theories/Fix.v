@@ -17,6 +17,8 @@ From Coq Require Import
 From ITree Require Import
      paco2_upto Core Morphisms MorphismsFacts OpenSum Eq.Eq Eq.UpToTaus.
 
+Set Universe Polymorphism.
+
 Module Type FixSig.
   Section Fix.
     (* the ambient effects *)
@@ -39,7 +41,7 @@ Module Type FixSig.
   End Fix.
 End FixSig.
 
-Module FixImpl <: FixSig.
+Module FixImpl.
   Section Fix.
     (* the ambient effects *)
     Variable E : Type -> Type.
@@ -163,11 +165,14 @@ Module FixImpl <: FixSig.
         eapply unfold_homfix.
         eapply unfold_interp1.
         punfold Ec.
-        inversion Ec; cbn.
+        inversion Ec;
+          match goal with
+          | [ H : _ = observe _ |- _ ] => rewrite <- H; clear H
+          end.
         + pupto2_final. eapply eq_itree_refl. (* This should be reflexivity. *)
         + destruct REL as [ | [] ].
           pfold; constructor. pupto2_final. right; apply INV.
-          eapply homFix_main; [ eapply H1 | |]; reflexivity.
+          eapply homFix_main; [ eapply H | |]; reflexivity.
         + destruct e. cbn. unfold ITree.liftE.
           { destruct f0.
             pupto2_final; pfold; constructor; cbn; right. unfold _mfix.

@@ -7,6 +7,8 @@ Open Scope monad_scope.
 From ITree Require Import
      Core Fix.
 
+Set Universe Polymorphism.
+
 Section M.
   (* The effects interface *)
   Variable IO : Type -> Type.

@@ -13,6 +13,8 @@ From ExtLib.Structures Require Import
 From ITree Require Import
      Core OpenSum.
 
+Set Universe Polymorphism.
+
 Open Scope itree_scope.
 
 (* [itreeF] eliminator, where the codomain is in the [itree]

@@ -9,6 +9,8 @@ From Paco Require Import paco.
 From ITree Require Import
      paco2_upto Core OpenSum Morphisms Eq.Eq Eq.UpToTaus.
 
+Set Universe Polymorphism.
+
 (* Proof of
    [interp f (t >>= k) ~ (interp f t >>= fun r => interp f (k r))]
 

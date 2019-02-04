@@ -23,6 +23,8 @@ From ExtLib.Structures Require Import
 From ITree Require Import
      Core Morphisms OpenSum.
 
+Set Universe Polymorphism.
+
 Section Failure.
 
 Variant failureE : Type -> Type :=

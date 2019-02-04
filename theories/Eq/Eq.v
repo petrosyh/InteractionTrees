@@ -17,6 +17,8 @@ From ITree Require Import
      paco2_upto
      Core.
 
+Set Universe Polymorphism.
+
 (* The following code is taken from Paco 2.0 *)
 
 Lemma paco_clear_bot: forall P:Prop, P \/ False <-> P.
